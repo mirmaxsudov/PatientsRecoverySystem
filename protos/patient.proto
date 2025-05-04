@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package patient;
+
+message Patient {
+  string id = 1;
+  string name = 2;
+  int32 age = 3;
+  string condition = 4;
+  string status = 5;
+  int32 progress = 6;
+  string last_visit = 7;
+}
+
+message ListPatientsRequest {
+  int32 page_size = 1;
+  int32 page_token = 2;
+  string filter = 3;
+}
+
+message ListPatientsResponse {
+  repeated Patient patients = 1;
+  string next_page_token = 2;
+  int32 total_size = 3;
+}
+
+message GetPatientRequest {
+  string id = 1;
+}
+
+message CreatePatientRequest {
+  Patient patient = 1;
+}
+
+message UpdatePatientRequest {
+  Patient patient = 1;
+  repeated string update_mask = 2;
+}
+
+message DeletePatientRequest {
+  string id = 1;
+}
+
+message Empty {}
