@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package patient;
+
+import "protos/patient.proto";
+
+service PatientService {
+  rpc ListPatients(ListPatientsRequest) returns (ListPatientsResponse);
+  rpc GetPatient(GetPatientRequest) returns (Patient);
+  rpc CreatePatient(CreatePatientRequest) returns (Patient);
+  rpc UpdatePatient(UpdatePatientRequest) returns (Patient);
+  rpc DeletePatient(DeletePatientRequest) returns (Empty);
+}
